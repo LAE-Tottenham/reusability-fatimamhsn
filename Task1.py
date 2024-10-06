@@ -3,7 +3,41 @@
 # Define your reusable functions here:
 # Make sure each function only does ONE thing!!!!!!!!!!!
 
+import math
+def is_float(value):
+    try:
+        float(value)
+        return True
+    except ValueError:
+        return False
 
+def hyp():
+    while True:
+        opp= input('enter the triangles opposite side length: ')
+        if is_float(opp)==True:
+            break
+        print('not valid')
+    while True:
+        adj = input('enter the triangles adjacent side length: ')
+        if is_float(adj)==True:
+            break
+        else:
+            print('not valid')
+            
+    hyp = math.sqrt((float(opp)**2) + (float(adj)**2))
+    return hyp
+
+def makingtriangle():
+  hyps = []
+  for i in range(2):
+    newhyp = hyp()
+    hyps.append(newhyp)
+    
+  opp = hyps[0]
+  adj = hyps[1]
+  hyp3 = math.sqrt(opp**2+adj**2)
+  
+  return hyp3
 
 ###########################################
 
@@ -39,9 +73,10 @@ print(weird_answer)
 # After you have written the reusable functions, answer the following:
 # Questions:
 # 1. What are the preconditions for your code not to break?
+# the values entered must be a float
 # 2. Validate the user's input based on your preconditions.
 # 3. Why was it useful to use reusable components in this case? Please mention at least 2 reasons and don't forget to contextualise.
-
+# since we already made a function that can take two inputs for the opposite and adjacent and then find the hypotenuse, we coul reuse this funtion for tiangle  and 2, without having to rewrite the code, making the code shorter
 # Further Tasks:
 # 1. Put your functions in seperate appropriate files and import them in.
 # 2. In your new file add functions for SOH CAH TOA. Also for the sine and cosine rule.
